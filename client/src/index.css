@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  /* background: rgb(163, 230, 53);
+  background: linear-gradient(
+    180deg,
+    rgba(163, 230, 53, 1) 10%,
+    rgba(217, 249, 157, 1) 40%,
+    rgba(236, 252, 203, 1) 80%,
+    rgba(255, 255, 255, 1) 100%
+  ); */
+}
+
+.bg-lime-400 {
+  background-color: rgb(163 230 53);
+}
+
+.bg-lime-500 {
+  background-color: rgb(132 204 22);
+}
+
+.bg-lime-600 {
+  background-color: rgb(101 163 13);
+}
