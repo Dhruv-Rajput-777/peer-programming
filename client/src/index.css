@@ -4,14 +4,22 @@ body {
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
-  /* background: rgb(163, 230, 53);
-  background: linear-gradient(
-    180deg,
-    rgba(163, 230, 53, 1) 10%,
-    rgba(217, 249, 157, 1) 40%,
-    rgba(236, 252, 203, 1) 80%,
-    rgba(255, 255, 255, 1) 100%
-  ); */
+}
+
+.bg-lime-50 {
+  background-color: rgb(247 254 231);
+}
+
+.bg-lime-100 {
+  background-color: rgb(236 252 203);
+}
+
+.bg-lime-200 {
+  background-color: rgb(217 249 157);
+}
+
+.bg-lime-300 {
+  background-color: rgb(190 242 100);
 }
 
 .bg-lime-400 {
@@ -24,4 +32,86 @@ body {
 
 .bg-lime-600 {
   background-color: rgb(101 163 13);
+}
+
+.bg-lime-700 {
+  background-color: rgb(77 124 15);
+}
+
+.bg-lime-800 {
+  background-color: rgb(63 98 18);
+}
+
+.bg-lime-900 {
+  background-color: rgb(54 83 20);
+}
+
+.text-lime-50 {
+  color: rgb(247 254 231);
+}
+
+.text-lime-100 {
+  color: rgb(236 252 203);
+}
+
+.text-lime-200 {
+  color: rgb(217 249 157);
+}
+
+.text-lime-300 {
+  color: rgb(190 242 100);
+}
+
+.text-lime-400 {
+  color: rgb(163 230 53);
+}
+
+.text-lime-500 {
+  color: rgb(132 204 22);
+}
+
+.text-lime-600 {
+  color: rgb(101 163 13);
+}
+
+.text-lime-700 {
+  color: rgb(77 124 15);
+}
+
+.text-lime-800 {
+  color: rgb(63 98 18);
+}
+
+.text-lime-900 {
+  color: rgb(54 83 20);
+}
+
+
+/* border */
+
+.border-lime-600 {
+  border-color: rgb(101 163 13);
+}
+
+
+
+
+
+
+
+
+div::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.gutter {
+  background-color: #eee;
+
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==");
+  cursor: col-resize;
 }

@@ -7,6 +7,7 @@ import session from "express-session";
 import mongoose from "mongoose";
 
 import authRoute from "./routes/auth.js";
+import apiRoute from "./routes/api.js"
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/auth", authRoute);
+app.use("/api", apiRoute);
 
 mongoose
   .connect(process.env.MONGO_URI, {
