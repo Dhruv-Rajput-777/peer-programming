@@ -8,7 +8,10 @@ const EditorTools = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="bg-gray-100 flex p-3 items-center justify-between border border-gray-400">
+    <div
+      className="bg-gray-100 flex items-center px-4 justify-between border border-gray-200"
+      style={{ minHeight: "9vh" }}
+    >
       <div className="flex items-center gap-3">
         <div className="border border-gray-400 py-1 px-2 bg-white">
           <i

@@ -11,6 +11,7 @@ import { activeFileReducer } from "./activeFile";
 import { setBoardTypeReducer } from "./changeBoard";
 import { toggleMicReducer } from "./mic";
 import { showParticipantsReducer } from "./participants";
+import { setQuestionReducer, setQuestionSourceReducer } from "./question";
 
 export default combineReducers({
   loginReducer,
@@ -24,4 +25,6 @@ export default combineReducers({
   setBoardTypeReducer,
   toggleMicReducer,
   showParticipantsReducer,
+  setQuestionReducer,
+  setQuestionSourceReducer,
 });

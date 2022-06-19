@@ -18,7 +18,7 @@ const TextEditor = () => {
   const activeFile = useSelector((state) => state.activeFileReducer);
 
   return (
-    <div className="flex flex-col" style={{ flexGrow: 1 }}>
+    <div className="flex flex-col" style={{ flexGrow: 1, maxHeight : "93vh"}}>
       <Files />
       {activeFile == "editor" ? (
         <CodeMirror

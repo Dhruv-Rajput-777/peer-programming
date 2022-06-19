@@ -86,27 +86,18 @@ body {
   color: rgb(54 83 20);
 }
 
-
 /* border */
 
 .border-lime-600 {
   border-color: rgb(101 163 13);
 }
 
-
-
-
-
-
-
-
 div::-webkit-scrollbar {
-  width: 0 !important;
+  width: 0rem !important;
 }
 
 .gutter {
   background-color: #eee;
-
   background-repeat: no-repeat;
   background-position: 50%;
 }

@@ -40,6 +40,7 @@ const Files = () => {
       <div
         id="file-list"
         className="flex items-center justify-evenly cursor-pointer bg-gray-100 border border-gray-200"
+        style={{ minHeight: "5vh" }}
       >
         <div
           className="text-xs font-bold text-center py-1"

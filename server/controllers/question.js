@@ -16,7 +16,7 @@ const scrapeQuestion = async (req, res) => {
 
     page.setViewport({
       width: 1080,
-      height: 640,
+      height: 1080,
     });
 
     const selector = "div.problem-statement";
@@ -41,7 +41,7 @@ const scrapeQuestion = async (req, res) => {
     });
 
     return res.status(200).json({
-      questionSrc: questionName + ".png",
+      questionSource: questionName + ".png",
     });
   } catch (error) {
     console.log(error);
