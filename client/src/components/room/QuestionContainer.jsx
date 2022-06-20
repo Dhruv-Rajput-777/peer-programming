@@ -20,7 +20,7 @@ const QuestionContainer = () => {
       ></div> */}
 
       <div
-        className="p-4 bg-white"
+        className="p-4 bg-white text-center"
         style={{
           flexGrow: 1,
           overflowY: "auto",

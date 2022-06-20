@@ -16,8 +16,8 @@ const UtilityTools = () => {
 
   return (
     <div
-      className="bg-gray-100 border border-gray-200 flex items-center"
-      style={{ minHeight: "9vh" }}
+      className="flex items-center"
+      style={{ minHeight: "9vh", backgroundColor: "#eee", borderTop: "1px solid #dddddd" }}
     >
       <div className="flex items-center px-4 gap-4">
         {mic == "unmute" ? (

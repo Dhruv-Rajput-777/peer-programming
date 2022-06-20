@@ -10,8 +10,13 @@ const Header = () => {
   return (
     <div>
       <div
-        className="header flex border-b border-gray-200 bg-gray-100"
-        style={{ height: "7vh", width: "100vw" }}
+        className="header flex"
+        style={{
+          height: "7vh",
+          width: "100vw",
+          backgroundColor: "#eee",
+          borderBottom: "1px solid #dddddd",
+        }}
       >
         <div className="logo flex items-center" style={{ width: "30%" }}>
           <img

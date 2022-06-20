@@ -9,8 +9,12 @@ const EditorTools = () => {
 
   return (
     <div
-      className="bg-gray-100 flex items-center px-4 justify-between border border-gray-200"
-      style={{ minHeight: "9vh" }}
+      className="flex items-center px-4 justify-between "
+      style={{
+        minHeight: "9vh",
+        backgroundColor: "#eee",
+        borderTop: "1px solid #dddddd",
+      }}
     >
       <div className="flex items-center gap-3">
         <div className="border border-gray-400 py-1 px-2 bg-white">
@@ -44,9 +48,9 @@ const EditorTools = () => {
           <option className="font-semibold font-xs">C++</option>
           <option className="font-semibold font-xs">C++</option>
         </select>
-        <div className="py-2 px-6 bg-lime-400 border border-gray-400 text-xs font-semibold cursor-pointer">
+        <button className="py-2 px-6 bg-lime-400 border border-gray-400 text-xs font-semibold cursor-pointer">
           Submit Code
-        </div>
+        </button>
       </div>
     </div>
   );
