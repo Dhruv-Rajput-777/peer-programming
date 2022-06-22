@@ -8,6 +8,7 @@ import mongoose from "mongoose";
 
 import authRoute from "./routes/auth.js";
 import apiRoute from "./routes/api.js"
+import roomRoute from "./routes/room.js";
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(passport.session());
 
 app.use("/auth", authRoute);
 app.use("/api", apiRoute);
+app.use("/room", roomRoute);
 
 mongoose
   .connect(process.env.MONGO_URI, {

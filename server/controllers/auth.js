@@ -96,4 +96,17 @@ const signupUser = async (req, res) => {
   }
 };
 
-export { loginUser, signupUser };
+const getUserId = async (req, res) => {
+  try {
+    if (req.isAuthenticated()) {
+      return res.send({ userId: req.user.id });
+    } else {
+      return res.send({ userId: null });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({ err: error.message });
+  }
+};
+
+export { loginUser, signupUser, getUserId };

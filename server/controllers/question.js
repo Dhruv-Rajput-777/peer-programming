@@ -6,6 +6,7 @@ const __dirname = path.resolve();
 const scrapeQuestion = async (req, res) => {
   try {
     const { url } = req.body;
+    if (!url) return res.status(400).json({ message: "url is required" });
 
     const browser = await puppeteer.launch({
       headless: true,

@@ -12,7 +12,7 @@ const QuestionContainer = () => {
   return (
     <div
       className="flex flex-col"
-      style={{ maxHeight: "92vh", minHeight: "93vh" }}
+      style={{ maxHeight: "93vh", minHeight: "93vh" }}
     >
       {/* <div
         className="bg-gray-100 border border-gray-200"

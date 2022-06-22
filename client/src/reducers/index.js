@@ -10,8 +10,9 @@ import { outputFileReducer } from "./outputFile";
 import { activeFileReducer } from "./activeFile";
 import { setBoardTypeReducer } from "./changeBoard";
 import { toggleMicReducer } from "./mic";
-import { showParticipantsReducer } from "./participants";
+import { showParticipantsReducer, updateParticipantsReducer } from "./participants";
 import { setQuestionReducer, setQuestionSourceReducer } from "./question";
+import { roomModalReducer } from "./roomModal";
 
 export default combineReducers({
   loginReducer,
@@ -27,4 +28,6 @@ export default combineReducers({
   showParticipantsReducer,
   setQuestionReducer,
   setQuestionSourceReducer,
+  updateParticipantsReducer,
+  roomModalReducer
 });

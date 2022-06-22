@@ -40,4 +40,24 @@ const signupUser = async (user) => {
   }
 };
 
-export { loginUser, signupUser };
+const getUserId = async () => {
+  try {
+    const response = await axios.get(`/auth/user`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      withCredentials: true,
+    });
+    if (response.status === 200) {
+      return response.data.userId;
+    } else {
+      return null;
+    }
+  } catch (err) {
+    console.log(err.response.data);
+    return null;
+  }
+};
+
+export { loginUser, signupUser, getUserId };

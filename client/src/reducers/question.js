@@ -7,7 +7,7 @@ const setQuestionReducer = (state = "", action) => {
   }
 };
 
-const setQuestionSourceReducer = (state = "", action) => {
+const setQuestionSourceReducer = (state = "default.png", action) => {
   switch (action.type) {
     case "SET_QUESTION_SOURCE":
       return action.payload;
