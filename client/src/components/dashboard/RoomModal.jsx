@@ -10,12 +10,12 @@ const RoomModal = () => {
   const { show, roomId } = useSelector((state) => state.roomModalReducer);
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="">
       <div
         id="err-modal"
-        className="fixed z-10 inset-0 overflow-y-auto"
+        className="fixed inset-0"
         aria-modal="true"
-        style={{ display: show ? "block" : "none" }}
+        style={{ display: show ? "block" : "none", top: "30%"}}
       >
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <div className="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">

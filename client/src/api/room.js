@@ -7,7 +7,7 @@ const createRoom = async () => {
     let data = response.data;
     const userId = await getUserId();
 
-    // if (userId == null) throw Error("User not found");
+    if (userId == null) throw Error("User not found");
 
     localStorage.setItem("userId", userId);
     localStorage.setItem("roomId", data.roomId);

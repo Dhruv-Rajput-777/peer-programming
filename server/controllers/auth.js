@@ -99,7 +99,7 @@ const signupUser = async (req, res) => {
 const getUserId = async (req, res) => {
   try {
     if (req.isAuthenticated()) {
-      return res.send({ userId: req.user.id });
+      return res.send({ userId: req.user.username });
     } else {
       return res.send({ userId: null });
     }

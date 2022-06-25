@@ -15,8 +15,7 @@ let options = {
 };
 
 const setOptions = async () => {
-  // options.uid = await getUserId();
-  options.uid = "" + parseInt(Math.random() * 100000);
+  options.uid = await getUserId();
   options.channel = window.location.pathname.split("/")[2];
 };
 

@@ -6,10 +6,9 @@ var whiteWebSdk = new WhiteWebSdk({
 });
 
 var joinRoomParams = {
-  uuid: "3bd0b000f23a11ecbe819dcf06d6c52b",
-  uid: "" + parseInt(Math.random() * 1000000),
-  roomToken:
-  "NETLESSROOM_YWs9cnV0U2ZaZWpfeFk3bXloViZleHBpcmVBdD0xNjU1OTI4Nzk5NzAxJm5vbmNlPTE2NTU5MjAxNTk3MDEwMCZyb2xlPTAmc2lnPTcwOWU4ZTczMDY4YzE5OWQwY2Y4ZGMxOWI0M2NiZWVmMTQ4ZTM4NmQyMmViYWQ1OGQ4MTJjMGQyMjVjYjZmMWUmdXVpZD0zYmQwYjAwMGYyM2ExMWVjYmU4MTlkY2YwNmQ2YzUyYg",
+  uuid: localStorage.getItem("roomUUID"),
+  uid: localStorage.getItem("userId"),
+  roomToken: localStorage.getItem("roomToken"),
 };
 
 const joinRoom = async (req, res) => {
