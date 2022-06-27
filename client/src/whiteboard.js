@@ -11,7 +11,10 @@ var joinRoomParams = {
   roomToken: localStorage.getItem("roomToken"),
 };
 
-const joinRoom = async (req, res) => {
+const joinRoom = async (uuid, uid, roomToken) => {
+  joinRoomParams.uuid = uuid;
+  joinRoomParams.uid = uid;
+  joinRoomParams.roomToken = roomToken;
   whiteWebSdk
     .joinRoom(joinRoomParams)
     .then(function (room) {

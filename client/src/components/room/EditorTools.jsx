@@ -3,9 +3,15 @@ import { resetEditorCode } from "../../actions/editor";
 import { setEditorTheme } from "../../actions/editorTools";
 import { useDispatch, useSelector } from "react-redux";
 
+import { submitCode } from "../../api/room";
+
 const EditorTools = () => {
   const EditorTheme = useSelector((state) => state.editorThemeReducer);
   const dispatch = useDispatch();
+
+  const submitCode = async () => {
+    const output = await submitCode();
+  };
 
   return (
     <div
@@ -48,7 +54,12 @@ const EditorTools = () => {
           <option className="font-semibold font-xs">C++</option>
           <option className="font-semibold font-xs">C++</option>
         </select>
-        <button className="py-2 px-6 bg-lime-400 border border-gray-400 text-xs font-semibold cursor-pointer">
+        <button
+          className="py-2 px-6 bg-lime-400 border border-gray-400 text-xs font-semibold cursor-pointer"
+          onClick={() => {
+            submitCode();
+          }}
+        >
           Submit Code
         </button>
       </div>

@@ -1,15 +1,23 @@
 import React, { useEffect } from "react";
 import { joinRoom } from "../../whiteboard";
 
+import { useSelector, useDispatch } from "react-redux";
+
 const WhiteBoard = () => {
+  const roomDetails = useSelector((state) => state.roomDetailsReducer);
+
   useEffect(() => {
-    joinRoom();
-  }, []);
+    const { roomUUID, userId, roomToken } = roomDetails;
+    joinRoom(roomUUID, userId, roomToken);
+  }, [roomDetails]);
 
   return (
     <div
       className="flex flex-col"
-      style={{ minHeight: "93vh", maxHeight: "93vh", width: "100%" }}
+      style={{
+        flexGrow: 1,
+        maxHeight: "93vh",
+      }}
     >
       <div className="p-4 bg-white" style={{ flexGrow: 1 }}>
         <div

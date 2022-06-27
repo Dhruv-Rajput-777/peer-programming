@@ -18,15 +18,13 @@ import {
 
 const UtilityTools = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const mic = useSelector((state) => state.toggleMicReducer);
-  const showParticipantsState = useSelector(
-    (state) => state.showParticipantsReducer
-  );
+  const showParticipantsState = useSelector((state) => state.showParticipantsReducer);
+  const roomDetails = useSelector((state) => state.roomDetailsReducer);
 
   useEffect(() => {
-    startCall().then(() => {
+    startCall(roomDetails.roomId, roomDetails.userId).then(() => {
       const setUsers = async () => {
         const users = await getUsers();
         dispatch(setParticipants(users));

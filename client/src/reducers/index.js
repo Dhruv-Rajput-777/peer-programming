@@ -3,16 +3,21 @@ import { combineReducers } from "redux";
 import loginReducer from "./login";
 import signupReducer from "./signup";
 import errorReducer from "./error";
-import { editorThemeReducer } from "./editorTools";
-import { setEditorCodeReducer } from "./editor";
-import { inputFileReducer } from "./inputFile";
-import { outputFileReducer } from "./outputFile";
-import { activeFileReducer } from "./activeFile";
-import { setBoardTypeReducer } from "./changeBoard";
-import { toggleMicReducer } from "./mic";
-import { showParticipantsReducer, updateParticipantsReducer } from "./participants";
-import { setQuestionReducer, setQuestionSourceReducer } from "./question";
-import { roomModalReducer } from "./roomModal";
+import {
+  setBoardTypeReducer,
+  setEditorCodeReducer,
+  editorThemeReducer,
+  activeFileReducer,
+  inputFileReducer,
+  outputFileReducer,
+  toggleMicReducer,
+  showParticipantsReducer,
+  updateParticipantsReducer,
+  setQuestionReducer,
+  setQuestionSourceReducer,
+  roomDetailsReducer,
+} from "./room";
+import { roomModalReducer } from "./dashboard";
 
 export default combineReducers({
   loginReducer,
@@ -29,5 +34,6 @@ export default combineReducers({
   setQuestionReducer,
   setQuestionSourceReducer,
   updateParticipantsReducer,
-  roomModalReducer
+  roomModalReducer,
+  roomDetailsReducer,
 });

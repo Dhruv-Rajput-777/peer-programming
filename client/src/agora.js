@@ -14,19 +14,15 @@ let options = {
   uid: null,
 };
 
-const setOptions = async () => {
-  options.uid = await getUserId();
-  options.channel = window.location.pathname.split("/")[2];
-};
-
 let rtmClient = null;
 let channel = null;
 
-const startCall = async () => {
+const startCall = async (roomId, userId) => {
   try {
-    await setOptions();
+    options.channel = roomId;
+    options.uid = userId;
 
-    rtmClient = await AgoraRTM.createInstance(options.appId);
+    rtmClient = AgoraRTM.createInstance(options.appId);
     await rtmClient.login({ uid: options.uid, token: options.token });
 
     channel = rtmClient.createChannel(options.channel);
