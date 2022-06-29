@@ -1,17 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { resetEditorCode } from "../../actions/editor";
 import { setEditorTheme } from "../../actions/editorTools";
 import { useDispatch, useSelector } from "react-redux";
-
-import { submitCode } from "../../api/room";
+import { setOutputFile } from "../../actions/outputFile";
+import { setActiveFile } from "../../actions/activeFile";
+import { socket } from "../../api/socket";
+import Spinner from "../Spinner";
 
 const EditorTools = () => {
-  const EditorTheme = useSelector((state) => state.editorThemeReducer);
   const dispatch = useDispatch();
+  const editorTheme = useSelector((state) => state.editorThemeReducer);
+  const roomId = useSelector((state) => state.roomDetailsReducer.roomId);
 
-  const submitCode = async () => {
-    const output = await submitCode();
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  const submitCodeUtil = async () => {
+    setShowSpinner(true);
+    socket.emit("submitCode", roomId);
   };
+
+  socket.on("codeOutput", (output) => {
+    const finalOutput =
+      output.output +
+      "\n" +
+      "Memory used : " +
+      output.memory +
+      " bytes\n" +
+      "Time taken : " +
+      output.cpuTime +
+      " sec";
+    dispatch(setOutputFile(finalOutput));
+    dispatch(setActiveFile("output"));
+    setShowSpinner(false);
+  });
 
   return (
     <div
@@ -32,7 +53,7 @@ const EditorTools = () => {
           ></i>
         </div>
         <div className="border border-gray-400 py-1 px-2 bg-white">
-          {EditorTheme == "light" ? (
+          {editorTheme == "light" ? (
             <i
               className="fa-solid fa-moon text-gray-700 fa-md cursor-pointer"
               onClick={() => {
@@ -52,15 +73,15 @@ const EditorTools = () => {
       <div className="flex gap-2 items-center">
         <select className="border border-gray-400 text-xs font-semibold py-2 px-4 cursor-pointer">
           <option className="font-semibold font-xs">C++</option>
-          <option className="font-semibold font-xs">C++</option>
+          {/* <option className="font-semibold font-xs">C++</option> */}
         </select>
         <button
-          className="py-2 px-6 bg-lime-400 border border-gray-400 text-xs font-semibold cursor-pointer"
+          className="flex items-center justify-center py-2 px-6 bg-lime-400 border border-gray-400 text-xs font-semibold cursor-pointer"
           onClick={() => {
-            submitCode();
+            submitCodeUtil();
           }}
         >
-          Submit Code
+          {showSpinner ? <Spinner size="20px" color="black" /> : "Submit Code"}
         </button>
       </div>
     </div>

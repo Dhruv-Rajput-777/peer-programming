@@ -14,6 +14,14 @@ const roomSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  code: {
+    type: String,
+    default: "",
+  },
+  stdin: {
+    type: String,
+    default: "",
+  },
 });
 
 const Room = mongoose.model("Room", roomSchema);

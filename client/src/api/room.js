@@ -38,15 +38,4 @@ const getRoomDetails = async () => {
   }
 };
 
-const submitCode = async (roomId) => {
-  try {
-    const response = await axios.get(`/room/submitCode/${roomId}`);
-    let data = response.data;
-    return data;
-  } catch (error) {
-    console.log(error);
-    return { output: "Error submitting code! Please try again later." };
-  }
-};
-
-export { createRoom, getRoomDetails, submitCode };
+export { createRoom, getRoomDetails};

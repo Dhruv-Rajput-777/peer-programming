@@ -20,7 +20,9 @@ const UtilityTools = () => {
   const dispatch = useDispatch();
 
   const mic = useSelector((state) => state.toggleMicReducer);
-  const showParticipantsState = useSelector((state) => state.showParticipantsReducer);
+  const showParticipantsState = useSelector(
+    (state) => state.showParticipantsReducer
+  );
   const roomDetails = useSelector((state) => state.roomDetailsReducer);
 
   useEffect(() => {

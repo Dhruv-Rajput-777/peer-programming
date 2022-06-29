@@ -5,17 +5,28 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import session from "express-session";
 import mongoose from "mongoose";
+import { createServer } from "http";
+import { Server } from "socket.io";
 
 import authRoute from "./routes/auth.js";
-import apiRoute from "./routes/api.js"
+import apiRoute from "./routes/api.js";
 import roomRoute from "./routes/room.js";
 
-const app = express();
+const clientURL = process.env.CLIENT_URL;
 
-app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true,
-}));
+const app = express();
+const server = createServer(app);
+const io = new Server(server, { cors: true });
+
+import socket from "./controllers/socket.js";
+socket(io);
+
+app.use(
+  cors({
+    origin: clientURL,
+    credentials: true,
+  })
+);
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -44,6 +55,6 @@ mongoose
     console.log(err);
   });
 
-app.listen(process.env.PORT || 8000, () => {
+server.listen(process.env.PORT || 8000, () => {
   console.log("Server is running");
 });

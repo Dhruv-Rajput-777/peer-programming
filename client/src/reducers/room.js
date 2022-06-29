@@ -65,6 +65,7 @@ const toggleMicReducer = (state = "mute", action) => {
       return state;
   }
 };
+
 const showParticipantsReducer = (state = false, action) => {
   switch (action.type) {
     case "SHOW_PARTICIPANTS":

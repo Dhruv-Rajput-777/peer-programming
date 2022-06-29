@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setInputFile } from "../../actions/inputFile";
+import { socket } from "../../api/socket.js";
 
 const Input = () => {
   const dispatch = useDispatch();
 
-  const EditorTheme = useSelector((state) => state.editorThemeReducer);
+  const editorTheme = useSelector((state) => state.editorThemeReducer);
   const input = useSelector((state) => state.inputFileReducer);
+  const roomDetails = useSelector((state) => state.roomDetailsReducer);
+
+  useEffect(() => {
+    dispatch(setInputFile(roomDetails.input));
+  }, [roomDetails]);
+
+  let updateInputUtil;
+
+  const updateInput = (newInput) => {
+    socket.emit("updateInput", {
+      roomId: roomDetails.roomId,
+      stdin: newInput,
+    });
+  };
+
+  socket.on("getUpdatedInput", (updatedInput) => {
+    dispatch(setInputFile(updatedInput));
+  });
 
   return (
     <div className="" style={{ flexGrow: 1 }}>
-      {EditorTheme == "dark" ? (
+      {editorTheme == "dark" ? (
         <textarea
           className="text-xs p-2 text-white"
           style={{
@@ -24,7 +43,12 @@ const Input = () => {
           placeholder="INPUT"
           value={input}
           onChange={(e) => {
-            dispatch(setInputFile(e.target.value));
+            const newInput = e.target.value;
+            dispatch(setInputFile(newInput));
+            if (updateInputUtil) clearTimeout(updateInputUtil);
+            updateInputUtil = setTimeout(() => {
+              updateInput(newInput);
+            }, 300);
           }}
         ></textarea>
       ) : (
@@ -40,7 +64,12 @@ const Input = () => {
           placeholder="INPUT"
           value={input}
           onChange={(e) => {
-            dispatch(setInputFile(e.target.value));
+            const newInput = e.target.value;
+            dispatch(setInputFile(newInput));
+            if (updateInputUtil) clearTimeout(updateInputUtil);
+            updateInputUtil = setTimeout(() => {
+              updateInput(newInput);
+            }, 300);
           }}
         ></textarea>
       )}

@@ -26,7 +26,7 @@ const JoinRoom = () => {
         style={{ height: "100vh", width: "100vw" }}
       >
         <div className="text-xl">Fetching room details...</div>
-        <Spinner />
+        <Spinner size="25px" />
       </div>
     </div>
   );
