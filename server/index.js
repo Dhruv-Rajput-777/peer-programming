@@ -33,7 +33,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     sameSite: "none",
-    secure,
+    secure: true,
   })
 );
 app.use(bodyParser.urlencoded({ extended: true }));
