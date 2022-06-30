@@ -9,7 +9,6 @@ const scrapeQuestion = async (req, res) => {
     if (!url) return res.status(400).json({ message: "url is required" });
 
     const browser = await puppeteer.launch({
-      headless: true,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
