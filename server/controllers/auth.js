@@ -79,7 +79,7 @@ const signupUser = async (req, res) => {
       return res.status(400).send({ err: "Invalid Codeforces Handle" });
 
     // if (!(await checkSubmission(username)))
-      // return res.status(400).send({ err: "No submission found" });
+    // return res.status(400).send({ err: "No submission found" });
 
     Users.register({ username }, password, (err, user) => {
       if (err) {
@@ -87,7 +87,7 @@ const signupUser = async (req, res) => {
         return res.status(500).send({ err: err.message });
       }
       passport.authenticate("local")(req, res, () => {
-        return res.send({ user });
+        return res.send(user);
       });
     });
   } catch (err) {

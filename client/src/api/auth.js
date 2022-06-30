@@ -10,13 +10,10 @@ const loginUser = async (user) => {
       withCredentials: true,
     });
 
-    if (response.status === 200) {
-      return { loginSuccess: true };
-    } else {
-      return { loginSuccess: false, err: response.data.message };
-    }
+    localStorage.setItem("userId", response.data.username);
+    return { loginSuccess: true };
   } catch (err) {
-    console.log(err.response.data);
+    console.log(err);
     return { loginSuccess: false, err: err.response.data.message };
   }
 };
@@ -29,11 +26,8 @@ const signupUser = async (user) => {
       },
       withCredentials: true,
     });
-    if (response.status === 200) {
-      return { signupSuccess: true };
-    } else {
-      return { signupSuccess: false, err: response.data.err };
-    }
+    localStorage.setItem("userId", response.data.username);
+    return { signupSuccess: true };
   } catch (err) {
     console.log(err.response.data);
     return { signupSuccess: false, err: err.response.data.err };
@@ -42,18 +36,19 @@ const signupUser = async (user) => {
 
 const getUserId = async () => {
   try {
-    const response = await axios.get(`/auth/user`, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      withCredentials: true,
-    });
-    if (response.status === 200) {
-      return response.data.userId;
-    } else {
-      return null;
-    }
+    return localStorage.getItem("userId");
+    // const response = await axios.get(`/auth/user`, {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Accept: "application/json",
+    //   },
+    //   withCredentials: true,
+    // });
+    // if (response.status === 200) {
+    //   return response.data.userId;
+    // } else {
+    //   return null;
+    // }
   } catch (err) {
     console.log(err.response.data);
     return null;
