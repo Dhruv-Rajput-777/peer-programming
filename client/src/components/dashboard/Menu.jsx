@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { showError } from "../../actions/error";
 import { showRoomModal } from "../../actions/roomModal";
 import { createRoom } from "../../api/room";
+import Spinner from "../Spinner";
 
 const Menu = () => {
   const dispatch = useDispatch();
+  const [spinner, setSpinner] = useState(false);
+
   const createRoomUtil = async () => {
+    setSpinner(true);
     const data = await createRoom();
     if (data.success) {
-      return dispatch(showRoomModal(data.roomId));
+      dispatch(showRoomModal(data.roomId));
     } else {
-      return dispatch(
-        showError("Unable to create room! Please try again later.")
-      );
+      dispatch(showError("Unable to create room! Please try again later."));
     }
+    setSpinner(false);
   };
+
   return (
     <div className="pl-8 pr-3 py-2" style={{ width: "25%", height: "auto" }}>
       <div
@@ -43,6 +47,7 @@ const Menu = () => {
           >
             <i className="fa-solid fa-user-group fa-sm"></i>
             <p>Create Room</p>
+            {spinner && <Spinner size="15px" />}
           </div>
           <div className="flex items-center gap-2 px-4 py-5 border-b border-gray-200">
             <i className="fa-solid fa-right-from-bracket"></i>
