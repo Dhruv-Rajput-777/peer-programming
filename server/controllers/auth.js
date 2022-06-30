@@ -78,8 +78,8 @@ const signupUser = async (req, res) => {
     if (!(await codeforcesHandleExists(username)))
       return res.status(400).send({ err: "Invalid Codeforces Handle" });
 
-    if (!(await checkSubmission(username)))
-      return res.status(400).send({ err: "No submission found" });
+    // if (!(await checkSubmission(username)))
+      // return res.status(400).send({ err: "No submission found" });
 
     Users.register({ username }, password, (err, user) => {
       if (err) {

@@ -17,7 +17,11 @@ import {
   setQuestionSourceReducer,
   roomDetailsReducer,
 } from "./room";
-import { roomModalReducer } from "./dashboard";
+import {
+  roomModalReducer,
+  dashboardDetailsReducer,
+  chatReducer,
+} from "./dashboard";
 
 export default combineReducers({
   loginReducer,
@@ -36,4 +40,6 @@ export default combineReducers({
   updateParticipantsReducer,
   roomModalReducer,
   roomDetailsReducer,
+  dashboardDetailsReducer,
+  chatReducer,
 });

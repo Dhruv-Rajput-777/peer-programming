@@ -15,7 +15,10 @@ const ErrorBanner = () => {
   }, [show]);
 
   return show ? (
-    <div className="sticky top-0 bg-lime-500 flex justify-center items-center" style={{height : "100%" , width : "100%"}}>
+    <div
+      className="sticky top-0 bg-lime-500 flex justify-center items-center"
+      style={{ height: "8vh", width: "100%" }}
+    >
       <div className="text-xs font-semibold py-2">{error}</div>
     </div>
   ) : null;

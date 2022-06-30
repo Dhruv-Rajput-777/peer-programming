@@ -26,6 +26,10 @@ body {
   background-color: rgb(163 230 53);
 }
 
+.bg-lime-400-fade {
+  background-color: rgba(163, 230, 53, 0.85);
+}
+
 .bg-lime-500 {
   background-color: rgb(132 204 22);
 }
