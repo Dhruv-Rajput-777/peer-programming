@@ -6,7 +6,7 @@ import UtilityTools from "./UtilityTools";
 const QuestionContainer = () => {
   const questionName = useSelector((state) => state.setQuestionSourceReducer);
 
-  let questionSourcePrefix = "http://localhost:8000/api/getQuestion/";
+  let questionSourcePrefix = "https://pear-programming-server.herokuapp.com/api/getQuestion/";
   let questionSource = questionSourcePrefix + questionName;
 
   return (

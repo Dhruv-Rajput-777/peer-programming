@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const serverURL = "http://localhost:8000/";
+const serverURL = "https://pear-programming-server.herokuapp.com/";
 const socket = io(serverURL);
 
 export { socket };

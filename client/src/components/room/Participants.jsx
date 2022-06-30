@@ -35,7 +35,7 @@ const Participants = () => {
       style={{ width: "10rem", zIndex: 10, bottom: "8vh" }}
     >
       <div
-        className="users-list bg-lime-400 text-gray-800 cursor-pointer"
+        className="users-list bg-lime-300 text-gray-800 cursor-pointer"
         style={{ maxHeight: "10rem", overflowY: "auto" }}
       >
         {participants.map((name) => Participant(name))}
