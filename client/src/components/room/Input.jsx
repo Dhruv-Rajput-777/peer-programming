@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setInputFile } from "../../actions/inputFile";
+import { setRoomDetails } from "../../actions/room";
 import { socket } from "../../api/socket.js";
 
 const Input = () => {
@@ -10,10 +11,6 @@ const Input = () => {
   const input = useSelector((state) => state.inputFileReducer);
   const roomDetails = useSelector((state) => state.roomDetailsReducer);
 
-  useEffect(() => {
-    dispatch(setInputFile(roomDetails.input));
-  }, [roomDetails]);
-
   let updateInputUtil;
 
   const updateInput = (newInput) => {
@@ -22,10 +19,6 @@ const Input = () => {
       stdin: newInput,
     });
   };
-
-  socket.on("getUpdatedInput", (updatedInput) => {
-    dispatch(setInputFile(updatedInput));
-  });
 
   return (
     <div className="" style={{ flexGrow: 1 }}>
@@ -45,10 +38,12 @@ const Input = () => {
           onChange={(e) => {
             const newInput = e.target.value;
             dispatch(setInputFile(newInput));
+          }}
+          onKeyUp={(e) => {
             if (updateInputUtil) clearTimeout(updateInputUtil);
             updateInputUtil = setTimeout(() => {
-              updateInput(newInput);
-            }, 300);
+              updateInput(input);
+            }, 1000);
           }}
         ></textarea>
       ) : (
@@ -66,10 +61,12 @@ const Input = () => {
           onChange={(e) => {
             const newInput = e.target.value;
             dispatch(setInputFile(newInput));
+          }}
+          onKeyUp={(e) => {
             if (updateInputUtil) clearTimeout(updateInputUtil);
             updateInputUtil = setTimeout(() => {
-              updateInput(newInput);
-            }, 300);
+              updateInput(input);
+            }, 1000);
           }}
         ></textarea>
       )}

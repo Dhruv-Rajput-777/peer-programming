@@ -11,3 +11,10 @@ export const setRoomDetails = () => async (dispatch) => {
     payload: roomDetails,
   });
 };
+
+export const setRoomDetailsLocally = (roomDetails) => {
+  return {
+    type: "SET_ROOM_DETAILS_LOCAL",
+    payload: roomDetails,
+  };
+};

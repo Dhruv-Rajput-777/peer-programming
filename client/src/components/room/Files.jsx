@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setActiveFile } from "../../actions/activeFile";
+import { setRoomDetails } from "../../actions/room";
 
 const setUnderLine = (activeFile) => {
   let fileList = document.getElementById("file-list");
@@ -33,6 +34,7 @@ const Files = () => {
 
   useEffect(() => {
     setUnderLine(activeFile);
+    dispatch(setRoomDetails());
   }, [activeFile]);
 
   return (
@@ -47,6 +49,7 @@ const Files = () => {
           style={{ flexGrow: 1 }}
           onClick={() => {
             dispatch(setActiveFile("editor"));
+            dispatch(setRoomDetails());
           }}
         >
           Source
@@ -57,6 +60,7 @@ const Files = () => {
           style={{ flexGrow: 1 }}
           onClick={() => {
             dispatch(setActiveFile("input"));
+            dispatch(setRoomDetails());
           }}
         >
           Input

@@ -22,7 +22,7 @@ export default (io) => {
       socket.on("updateInput", async ({ roomId, stdin }) => {
         try {
           await Room.updateOne({ roomId }, { stdin });
-          socket.to(roomId).emit("getUpdatedInput", stdin);
+          socket.broadcast.to(roomId).emit("getUpdatedInput", stdin);
         } catch (error) {
           console.log(error);
         }

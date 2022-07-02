@@ -112,6 +112,8 @@ const roomDetailsReducer = (state = { available: null }, action) => {
   switch (action.type) {
     case "SET_ROOM_DETAILS":
       return action.payload;
+    case "SET_ROOM_DETAILS_LOCAL":
+      return { ...state, [action.payload.key]: action.payload.value };
     default:
       return state;
   }
