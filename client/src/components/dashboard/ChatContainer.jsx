@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { socket } from "../../api/socket";
 import { addMessage } from "../../actions/dashboard";
+import Spinner from "../Spinner";
 
 function scrollToBottom() {
   const element = document.getElementById("chat-container");
@@ -59,6 +60,14 @@ const ChatContainer = () => {
     setMessage("");
   };
 
+  const SpinnerUtil = () => {
+    return (
+      <div className="flex justify-center items-center h-full">
+        <Spinner size="50px" />
+      </div>
+    );
+  };
+
   return (
     <div className="pl-3 pr-8 py-2" style={{ width: "75%", height: "auto" }}>
       <div
@@ -71,9 +80,13 @@ const ChatContainer = () => {
             className=""
             style={{ height: "100%", width: "100%", overflow: "auto" }}
           >
-            {chats.map(({ userId, message }, index) => {
-              return messageBox(userId, message, index);
-            })}
+            {chats.length === 0 ? (
+              <SpinnerUtil />
+            ) : (
+              chats.map(({ userId, message }, index) => {
+                return messageBox(userId, message, index);
+              })
+            )}
           </div>
         </div>
         <div

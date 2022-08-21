@@ -8,15 +8,10 @@ const Announcement = () => {
         style={{ height: "100%" }}
       >
         <div className="flex items-center ">
-          <i className="fa-solid fa-triangle-exclamation text-lime-500 text-sm mr-1"></i>
+          <i className="fa-solid fa-triangle-exclamation text-red-500 text-sm mr-1"></i>
           <p className="font-semibold text-xs">
-            For practice please visit :{" "}
-            <a
-              href="https://c2-ladders.com/"
-              className="text-lime-500 underline"
-            >
-              c2-ladders
-            </a>
+            Sections are disabled due to performance issues. Please use the&nbsp;
+            <span className="text-lime-500">"Create Room"</span> feature to explore more.
           </p>
         </div>
       </div>

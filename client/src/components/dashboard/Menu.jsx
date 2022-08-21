@@ -27,15 +27,15 @@ const Menu = () => {
         style={{ height: "100%" }}
       >
         <div className="text-xs font-semibold cursor-pointer">
-          <div className="flex items-center gap-2 px-4 py-5 border-b border-gray-200">
+          <div className="flex items-center gap-2 px-4 py-5 border-b border-gray-200 opacity-50">
             <i className="fa-solid fa-code"></i>
             <p>Resources</p>
           </div>
-          <div className="flex items-center gap-2 px-4 py-5 border-b border-gray-200 bg-lime-400 hover:bg-lime-500">
+          <div className="flex items-center gap-2 px-4 py-5 border-b border-gray-200 bg-lime-400 hover:bg-lime-500 opacity-50">
             <i className="fa-brands fa-rocketchat"></i>
             <p>Global Chat</p>
           </div>
-          <div className="flex items-center gap-2 px-4 py-5 border-b border-gray-200">
+          <div className="flex items-center gap-2 px-4 py-5 border-b border-gray-200 opacity-50">
             <i className="fa-solid fa-award"></i>
             <p>Rank List</p>
           </div>
