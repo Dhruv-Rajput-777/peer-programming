@@ -90,7 +90,7 @@ const updateParticipantsReducer = (state = [], action) => {
   }
 };
 
-const setQuestionReducer = (state = "", action) => {
+const setQuestionReducer = (state = "https://codeforces.com/problemset/problem/1857/D", action) => {
   switch (action.type) {
     case "SET_QUESTION":
       return action.payload;

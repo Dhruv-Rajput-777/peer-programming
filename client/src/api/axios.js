@@ -1,7 +1,6 @@
 import axios from "axios";
+import { serverURL } from "../constants";
 
 export default axios.create({
-  baseURL: "https://pear-programming-server.onrender.com/",
-  // baseURL: "https://pear-programming-server.herokuapp.com/",
-  // baseURL: "http://localhost:8000/",
+  baseURL: serverURL,
 });

@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
 import UtilityTools from "./UtilityTools";
+import { serverURL } from "../../constants.js";
 
 const QuestionContainer = () => {
   const questionName = useSelector((state) => state.setQuestionSourceReducer);
 
-  let questionSourcePrefix = "https://pear-programming-server.herokuapp.com/api/getQuestion/";
+  let questionSourcePrefix = `${serverURL}api/getQuestion/`;
   let questionSource = questionSourcePrefix + questionName;
 
   return (

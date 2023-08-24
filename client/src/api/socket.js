@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
+import { serverURL } from "../constants.js";
 
-const serverURL = "https://pear-programming-server.onrender.com/";
 const socket = io(serverURL);
 
 export { socket };
